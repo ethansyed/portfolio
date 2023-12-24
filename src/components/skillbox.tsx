@@ -20,7 +20,7 @@ export default function skillbox(props: sbprops) {
                 flexDirection: 'column',
                 justifyContent: 'center', // Vertical centering
                 alignItems: 'center', // Horizontal centering
-                borderRadius: '15px',
+                borderRadius: '10px',
                 padding: '5px',
                 backgroundColor: '#FAFAFA'
             }}

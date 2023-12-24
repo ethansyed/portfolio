@@ -9,17 +9,6 @@ import FolderIcon from '@mui/icons-material/Folder';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import InfoIcon from '@mui/icons-material/Info';
 
-const clickProjects = () => {
-    console.info('You clicked the projects.');
-};
-
-const clickContact = () => {
-    console.info('You clicked the contact.');
-};
-const clickHome = () => {
-    console.info('You clicked the home.');
-};
-
 
 export default function navbar() {
 

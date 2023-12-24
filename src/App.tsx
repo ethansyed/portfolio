@@ -24,14 +24,9 @@ import reactsvg from './assets/react.svg'
 import mongo from './assets/mongo.svg'
 import cplusplus from './assets/c++logo.svg'
 import clogo from './assets/clogo.svg'
+import jslogo from './assets/js.svg'
+import tslogo from './assets/ts.svg'
 
-
-const DemoPaper = styled(Paper)(({ theme }) => ({
-  width: 120,
-  height: 120,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-}));
 
 function App() {
 
@@ -111,21 +106,27 @@ function App() {
                   <Grid
                     container
                     direction={'row'}
-                    margin={'auto'}
                     justifyContent={'center'}
-                    spacing={1}
+                    spacing={2}
+
                   >
-                    <Grid item sm={3}>
+                    <Grid item sm={3} md={2}>
                       <SkillBox svg={clogo} text={'C'}></SkillBox>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item sm={3} md={2}>
                       <SkillBox svg={cplusplus} text={'C++'}></SkillBox>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item sm={3} md={2}>
                       <SkillBox svg={reactsvg} text={'React'}></SkillBox>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item sm={3} md={2}>
                       <SkillBox svg={mongo} text={'MongoDB'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3} md={2}>
+                      <SkillBox svg={jslogo} text={'Javascript'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3} md={2}>
+                      <SkillBox svg={tslogo} text={'Typescript'}></SkillBox>
                     </Grid>
                   </Grid>
                 </Grid>
