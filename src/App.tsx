@@ -1,8 +1,12 @@
-import Navbar from './components/navbar'
+
 import './App.css'
 import { styled } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme'
+
+//My Components
+import Navbar from './components/navbar'
+import SkillBox from './components/skillbox'
 
 //MUI components
 import Typography from '@mui/material/Typography';
@@ -15,12 +19,17 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailIcon from '@mui/icons-material/Mail';
 
+//svg imports
+import reactsvg from './assets/react.svg'
+import mongo from './assets/mongo.svg'
+import cplusplus from './assets/c++logo.svg'
+import clogo from './assets/clogo.svg'
+
 
 const DemoPaper = styled(Paper)(({ theme }) => ({
   width: 120,
   height: 120,
   padding: theme.spacing(2),
-  ...theme.typography.body2,
   textAlign: 'center',
 }));
 
@@ -30,68 +39,100 @@ function App() {
     <>
       <div className="mt-0 min-w-screen min-h-screen w-full h-full bg-slate-100">
         <Navbar></Navbar>
-        <div className="p-2 mt-16">
-          <Grid container spacing={2}>
-            <Grid item sm={8} md={8} margin={'auto'} textAlign={'center'}>
-              <h1 className='text-2xl antialiased font-bold'>
-                Welcome to <br /> Ethan Syed's Portfolio
-              </h1>
-              <Stack
-                direction="row"
-                spacing={1.5}
-                justifyContent="center"
-                alignItems="center"
-                margin={1}
-              >
-                <ThemeProvider theme={theme}>
-                  <MailIcon color='primary' fontSize='large'></MailIcon>
-                </ThemeProvider>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ethansyed">
-                  <GitHubIcon fontSize='large'></GitHubIcon>
-                </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ethansyed/">
-                  <LinkedInIcon color='primary' fontSize='large'></LinkedInIcon>
-                </a>
-              </Stack>
-            </Grid>
-            <Grid item sm={4}>
-              <DemoPaper square={false}></DemoPaper>
-            </Grid>
-          </Grid>
-        </div>
-        <ThemeProvider theme={theme}>
-          <div className='p-2 m-5'>
-            <Grid container direction={'column'} spacing={5} justifyContent="center" alignItems={'center'} textAlign={'center'}>
-              <Grid item sm={12} >
-                <Typography
-                  variant='h4'
-                  fontWeight={'bold'}
-                  color={'primary'}
+        <div className='p-14'>
+          {/* Home Section */}
+          <div className="mt-14">
+            <Grid container spacing={2}>
+              <Grid item sm={12} md={12} margin={'auto'} textAlign={'center'}>
+                <h1 className='text-2xl antialiased font-bold'>
+                  Welcome to <br /> Ethan Syed's Portfolio
+                </h1>
+                <Stack
+                  direction="row"
+                  spacing={1.5}
+                  justifyContent="center"
+                  alignItems="center"
+                  margin={1}
                 >
-                  About
-                  <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
-                </Typography>
-                <Typography
-                  fontWeight={'bold'}
-                  color={'primary'}
-                >
-                  This is my information
-                </Typography>
-              </Grid>
-              <Grid item sm={12} >
-                <Typography
-                  variant='h4'
-                  fontWeight={'bold'}
-                  color={'primary'}
-                >
-                  Skills
-                  <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
-                </Typography>
-
+                  <ThemeProvider theme={theme}>
+                    <MailIcon color='primary' fontSize='large'></MailIcon>
+                  </ThemeProvider>
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ethansyed">
+                    <GitHubIcon fontSize='large'></GitHubIcon>
+                  </a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ethansyed/">
+                    <LinkedInIcon color='primary' fontSize='large'></LinkedInIcon>
+                  </a>
+                </Stack>
               </Grid>
             </Grid>
           </div>
-        </ThemeProvider>
+
+          {/* About Section */}
+          <ThemeProvider theme={theme}>
+            <div className='p-2 mt-16'>
+              <Grid container direction={'column'} spacing={5} justifyContent="center" alignItems={'center'} textAlign={'center'}>
+                {/* About */}
+                <Grid item sm={12} >
+                  <Typography
+                    variant='h4'
+                    fontWeight={'bold'}
+                    color={'primary'}
+                    marginTop={10}
+                  >
+                    About
+                    <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
+                  </Typography>
+                  <Typography
+                    color={'primary'}
+                    marginTop={10}
+                    marginBottom={10}
+                  >
+                    Hello, my name is Ethan Syed.
+                    <br />
+                    I am a <b>Junior</b> at the University of Texas at Austin currently pursuing a Bachelor's in Electrical and Computer Engineering.
+                    <br />
+                    I specialize in Computer Architecture and Embedded Systems.
+                    <br />
+                    This is where I will post most of my personal projects.
+                  </Typography>
+                </Grid>
+                {/* Skills */}
+                <Grid item sm={12} >
+                  <Typography
+                    variant='h4'
+                    fontWeight={'bold'}
+                    color={'primary'}
+                    marginBottom={5}
+                  >
+                    Skills
+                    <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
+                  </Typography>
+                  <Grid
+                    container
+                    direction={'row'}
+                    margin={'auto'}
+                    justifyContent={'center'}
+                    spacing={1}
+                  >
+                    <Grid item sm={3}>
+                      <SkillBox svg={clogo} text={'C'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3}>
+                      <SkillBox svg={cplusplus} text={'C++'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3}>
+                      <SkillBox svg={reactsvg} text={'React'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3}>
+                      <SkillBox svg={mongo} text={'MongoDB'}></SkillBox>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
+          </ThemeProvider>
+        </div>
       </div>
 
     </>

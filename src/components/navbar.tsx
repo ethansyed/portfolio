@@ -21,7 +21,7 @@ const clickHome = () => {
 };
 
 
-export default function ButtonAppBar() {
+export default function navbar() {
 
 
     return (
