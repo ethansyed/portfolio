@@ -1,6 +1,4 @@
 import Paper from '@mui/material/Paper';
-import reactsvg from '../assets/react.svg'
-import Typography from '@mui/material/Typography';
 
 type sbprops = {
     svg: string,
@@ -26,16 +24,9 @@ export default function skillbox(props: sbprops) {
             }}
         >
             <img className='mt-auto' width={70} src={props.svg} alt="React Logo" />
-            <Typography
-                fontWeight={'bold'}
-                color={'black'}
-                sx={{
-                    marginTop: 'auto',
-
-                }}
-            >
+            <h1 className='font-bold mt-auto text-sm'>
                 {props.text}
-            </Typography>
+            </h1>
 
         </Paper>
     );

@@ -1,31 +1,36 @@
 
 import './App.css'
-import { styled } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme'
+import { Link } from 'react-scroll'
 
 //My Components
 import Navbar from './components/navbar'
 import SkillBox from './components/skillbox'
+import ProjectCard from './components/projectcard';
 
 //MUI components
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper';
 
 // Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailIcon from '@mui/icons-material/Mail';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 
-//svg imports
+//svg & png imports
 import reactsvg from './assets/react.svg'
 import mongo from './assets/mongo.svg'
 import cplusplus from './assets/c++logo.svg'
 import clogo from './assets/clogo.svg'
 import jslogo from './assets/js.svg'
 import tslogo from './assets/ts.svg'
+import python from './assets/python.svg'
+import recog from './assets/recog.png'
+import IconButton from '@mui/material/IconButton';
+
+import pdf from './assets/EthanSyedResumeHW.pdf'
 
 
 function App() {
@@ -34,9 +39,9 @@ function App() {
     <>
       <div className="mt-0 min-w-screen min-h-screen w-full h-full bg-slate-100">
         <Navbar></Navbar>
-        <div className='p-14'>
+        <div className='p-8'>
           {/* Home Section */}
-          <div className="mt-14">
+          <div id="home" className="mt-14">
             <Grid container spacing={2}>
               <Grid item sm={12} md={12} margin={'auto'} textAlign={'center'}>
                 <h1 className='text-2xl antialiased font-bold'>
@@ -49,14 +54,22 @@ function App() {
                   alignItems="center"
                   margin={1}
                 >
-                  <ThemeProvider theme={theme}>
-                    <MailIcon color='primary' fontSize='large'></MailIcon>
-                  </ThemeProvider>
+
+                  <Link to="contact" spy={true} smooth={true} duration={850} offset={-50}>
+                    <IconButton>
+                      <MailIcon fontSize='large'></MailIcon>
+                    </IconButton>
+                  </Link>
+
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/ethansyed">
-                    <GitHubIcon fontSize='large'></GitHubIcon>
+                    <IconButton>
+                      <GitHubIcon fontSize='large' sx={{ color: "black" }}></GitHubIcon>
+                    </IconButton>
                   </a>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ethansyed/">
-                    <LinkedInIcon color='primary' fontSize='large'></LinkedInIcon>
+                    <IconButton>
+                      <LinkedInIcon color='primary' fontSize='large'></LinkedInIcon>
+                    </IconButton>
                   </a>
                 </Stack>
               </Grid>
@@ -64,25 +77,17 @@ function App() {
           </div>
 
           {/* About Section */}
-          <ThemeProvider theme={theme}>
-            <div className='p-2 mt-16'>
+          <div id='about' className='p-2 mt-16'>
+            <ThemeProvider theme={theme}>
               <Grid container direction={'column'} spacing={5} justifyContent="center" alignItems={'center'} textAlign={'center'}>
                 {/* About */}
                 <Grid item sm={12} >
-                  <Typography
-                    variant='h4'
-                    fontWeight={'bold'}
-                    color={'primary'}
-                    marginTop={10}
-                  >
+                  <h1 className='mt-16 font-bold text-3xl'>
                     About
                     <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
-                  </Typography>
-                  <Typography
-                    color={'primary'}
-                    marginTop={10}
-                    marginBottom={10}
-                  >
+                  </h1>
+
+                  <p className='mt-20 mb-20'>
                     Hello, my name is Ethan Syed.
                     <br />
                     I am a <b>Junior</b> at the University of Texas at Austin currently pursuing a Bachelor's in Electrical and Computer Engineering.
@@ -90,25 +95,20 @@ function App() {
                     I specialize in Computer Architecture and Embedded Systems.
                     <br />
                     This is where I will post most of my personal projects.
-                  </Typography>
+                  </p>
+
                 </Grid>
                 {/* Skills */}
                 <Grid item sm={12} >
-                  <Typography
-                    variant='h4'
-                    fontWeight={'bold'}
-                    color={'primary'}
-                    marginBottom={5}
-                  >
+                  <h1 className='font-bold mb-10 text-3xl'>
                     Skills
                     <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
-                  </Typography>
+                  </h1>
                   <Grid
                     container
                     direction={'row'}
                     justifyContent={'center'}
                     spacing={2}
-
                   >
                     <Grid item sm={3} md={2}>
                       <SkillBox svg={clogo} text={'C'}></SkillBox>
@@ -117,10 +117,7 @@ function App() {
                       <SkillBox svg={cplusplus} text={'C++'}></SkillBox>
                     </Grid>
                     <Grid item sm={3} md={2}>
-                      <SkillBox svg={reactsvg} text={'React'}></SkillBox>
-                    </Grid>
-                    <Grid item sm={3} md={2}>
-                      <SkillBox svg={mongo} text={'MongoDB'}></SkillBox>
+                      <SkillBox svg={python} text={'Python'}></SkillBox>
                     </Grid>
                     <Grid item sm={3} md={2}>
                       <SkillBox svg={jslogo} text={'Javascript'}></SkillBox>
@@ -128,11 +125,65 @@ function App() {
                     <Grid item sm={3} md={2}>
                       <SkillBox svg={tslogo} text={'Typescript'}></SkillBox>
                     </Grid>
+                    <Grid item sm={3} md={2}>
+                      <SkillBox svg={reactsvg} text={'React'}></SkillBox>
+                    </Grid>
+                    <Grid item sm={3} md={2}>
+                      <SkillBox svg={mongo} text={'MongoDB'}></SkillBox>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
+            </ThemeProvider>
+          </div>
+          {/* Projects Section */}
+          <div id='projects' className='p-2 mt-16'>
+            <ThemeProvider theme={theme}>
+              <h1 className='font-bold text-3xl text-center'>
+                Projects
+                <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
+              </h1>
+              <Stack spacing={2} marginTop={5} justifyContent={'center'} alignItems={'center'}>
+                <ProjectCard jpg={recog} title={'Facial Recognition'} body={
+                  ['Created a script using cv2 image processing models to recognize faces from a local database',
+                    'Implmented and optimized expansion of database on detection of new face to capture facial data within ~600ms']
+                } tech={'Python, CV2 Library'}></ProjectCard>
+              </Stack>
+            </ThemeProvider>
+          </div>
+          {/* Contact */}
+          <div id='contact' className='p-2 mt-24 mb-24'>
+            <h1 className='text-3xl text-center'>
+              <b>Contact</b>
+            </h1>
+            <div className='w-16 rounded bg-violet-300 h-1 m-auto '></div>
+
+            <div className='flex flex-col items-center text-xl mr-8'>
+              <div className='flex mt-10 items-center gap-2'>
+                <a href={pdf} target="_blank" rel="noopener noreferrer">
+                  <IconButton>
+                    <DocumentScannerIcon></DocumentScannerIcon>
+                  </IconButton>
+                </a>
+                <h1>Resume</h1>
+              </div>
+
+              <div className='flex mt-4 items-center gap-2'>
+                <IconButton>
+                  <MailIcon></MailIcon>
+                </IconButton>
+                <h1>ethansyed@gmail.com</h1>
+              </div>
+
             </div>
-          </ThemeProvider>
+
+          </div>
+
+
+        </div>
+        {/* Footer */}
+        <div className='flex justify-center align-center w-full bg-black h-36 text-md antialiased text-center' style={{ backgroundColor: '#252525' }}>
+          <h1 className='my-auto' style={{ color: '#FAFAFA' }}> <b>Ethan Syed</b>  <br /> All Rights Reserved</h1>
         </div>
       </div>
 
