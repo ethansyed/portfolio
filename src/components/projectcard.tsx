@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import { CardActionArea } from '@mui/material';
 
 type pcprops = {
-    jpg: string,
+    // jpg: string,
     title: string,
     tech: string,
     body: string[]
@@ -32,7 +32,7 @@ export default function projectcard(props: pcprops) {
                     </div>
                 </div>
 
-                <img src={props.jpg} alt={props.title + ' img'} />
+                {/* <img src={props.jpg} alt={props.title + ' img'} /> */}
 
             </CardActionArea>
         </Card>
