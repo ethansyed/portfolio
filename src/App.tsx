@@ -156,12 +156,12 @@ function App() {
                 <a href="https://github.com/ethansyed/facialRecognition">
                   <ProjectCard title={'Facial Recognition'} body={
                     ['Created a script using cv2 image processing models to recognize faces from a local database',
-                      'Implmented and optimized expansion of database on detection of new face to capture facial data within ~600ms']
+                      'Implmented and optimized expansion of database to capture new facial data within ~600ms']
                   } tech={'Python, CV2 Library'}></ProjectCard>
                 </a>
                 <a href="https://github.com/ethansyed/RESTapi">
                   <ProjectCard title={'REST API'} tech={'Javascript, Express, MongoDB'} body={[
-                    'Created a RESTful API that with C.R.U.D operations to store users and user info on a MongoDB server'
+                    'Created a RESTful API with C.R.U.D operations to store users and user info on a MongoDB server'
                   ]}></ProjectCard>
                 </a>
               </Stack>
