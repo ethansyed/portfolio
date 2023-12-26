@@ -28,7 +28,6 @@ import clogo from './assets/clogo.svg'
 import jslogo from './assets/js.svg'
 import tslogo from './assets/ts.svg'
 import python from './assets/python.svg'
-import recog from './assets/recog.png'
 import java from './assets/java.svg'
 
 import pdf from './assets/EthanSyedResumeHW.pdf'
