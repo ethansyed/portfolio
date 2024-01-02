@@ -156,7 +156,7 @@ function App() {
                 <a href="https://github.com/ethansyed/facialRecognition">
                   <ProjectCard title={'Facial Recognition'} body={
                     ['Created a script using cv2 image processing models to recognize faces from a local database',
-                      'Implmented and optimized expansion of database to capture new facial data within ~600ms']
+                      'Impelmented and optimized expansion of database to capture new facial data within ~600ms']
                   } tech={'Python, CV2 Library'}></ProjectCard>
                 </a>
                 <a href="https://github.com/ethansyed/RESTapi">
