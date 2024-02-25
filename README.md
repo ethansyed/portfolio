@@ -1,7 +1,10 @@
 # Ethan Syed Portfolio
 
-This is my personal portfolio, which includes some of my projects and presents them in a visual form
+## Purpose
+- To conglomerate all of my personal and academic projects in one place
+- Visually present my skills and projects 
 
+## Technologies Utilized:
 Built with:
 - Typescript
 - React (VITE)
